@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="414dp"
+        android:layout_height="605dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="5dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView_saoyisao"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@mipmap/saoyisao" />
+
+        <EditText
+            android:id="@+id/edittext_shouyesousuo"
+            android:layout_width="340dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/imageView_saoyisao"
+            android:background="@drawable/editsharp"
+            android:paddingLeft="20dp" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/edittext_shouyesousuo"
+            app:srcCompat="@mipmap/sousuo" />
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/looper_pager"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_below="@id/imageView2"></androidx.viewpager.widget.ViewPager>
+
+        <ImageView
+            android:id="@+id/shouye_page1"
+            android:layout_width="406dp"
+            android:layout_height="165dp"
+            android:layout_below="@id/looper_pager"
+            app:srcCompat="@mipmap/shouyepage" />
+
+        <Button
+            android:id="@+id/button_denglu"
+            android:layout_width="406dp"
+            android:layout_height="56dp"
+            android:layout_below="@id/shouye_page1"
+            android:layout_marginTop="0dp"
+            android:background="@color/color_useBlue"
+            android:text="登录"
+            android:textColor="@color/color_write"
+            android:textSize="25dp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="305dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="113dp"
+            android:layout_below="@id/button_denglu"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="3dp"
+            android:text="\n\n                     登陆即表示您阅读、理解并同意\n《菜鸟网站服务协议》、《菜鸟裹裹隐私保护指引》"></TextView>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

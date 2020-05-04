@@ -45,10 +45,10 @@ public class LoginActivity extends AppCompatActivity {
         mEditPsw = findViewById(R.id.editText_password);
     }
 
-    public void login(View view){
+    public void login(View view) {
 
         String username = mEditUser.getText().toString();
-        LogUtils.i(LoginActivity.class,"username -->"+username);
+        LogUtils.i(LoginActivity.class, "username -->" + username);
         String passwd = mEditPsw.getText().toString();
 
 //        LogUtils.i(LoginActivity.class,username);
@@ -56,31 +56,25 @@ public class LoginActivity extends AppCompatActivity {
 
         Retrofit retrofit = RetrofitManager.getRetrofit();
         API api = retrofit.create(API.class);
-        Call<User> task = api.userLogin(username,passwd);
+        Call<User> task = api.userLogin(username, passwd);
         task.enqueue(new Callback<User>() {
             @Override
             public void onResponse(Call<User> call, Response<User> response) {
                 int code = response.code();
-                LogUtils.i(LoginActivity.class,"code-->"+code);
-                if(code == HttpURLConnection.HTTP_OK){
+                LogUtils.i(LoginActivity.class, "code-->" + code);
+                if (code == HttpURLConnection.HTTP_OK) {
                     User user = response.body();
 
-                    LogUtils.i(LoginActivity.class,"username-->"+user.getData().getAddress());
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    LogUtils.i(LoginActivity.class, "username-->" + user.getData().getAddress());
+                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 }
             }
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
-                    LogUtils.i(LoginActivity.class,"登录失败");
+                LogUtils.i(LoginActivity.class, "登录失败");
             }
         });
-
-
-
-
-
-
 
 
     }

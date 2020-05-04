@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="414dp"
+        android:layout_height="605dp"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:paddingRight="5dp"
+        tools:ignore="MissingConstraints">
+
+        <ImageView
+            android:id="@+id/imageView_saoyisao"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            app:srcCompat="@mipmap/fanhui" />
+
+        <EditText
+            android:id="@+id/edittext_shouyesousuo"
+            android:layout_width="340dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/imageView_saoyisao"
+            android:background="@drawable/editsharp"
+            android:paddingLeft="20dp" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toRightOf="@id/edittext_shouyesousuo"
+            app:srcCompat="@mipmap/sousuo" />
+
+        <TextView
+            android:id="@+id/sousuojieguo_ziti"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_below="@id/edittext_shouyesousuo"
+            android:layout_marginTop="10dp"
+            android:text="查询信息如下"></TextView>
+
+        <ImageView
+            android:id="@+id/sousuojieguo_xian_1"
+            android:layout_width="406dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/sousuojieguo_ziti"
+            android:layout_marginTop="5dp"
+            android:background="@color/color_grey" />
+
+        <TableRow
+            android:id="@+id/shouye_shagnpin1"
+            android:layout_width="397dp"
+            android:layout_height="90dp"
+            android:layout_below="@id/sousuojieguo_ziti"
+            android:layout_marginTop="30dp">
+
+
+            <ImageView
+                android:id="@+id/dingdan1"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                app:srcCompat="@mipmap/yangwanou" />
+
+            <TextView
+                android:id="@+id/TextView_a_text1"
+                android:layout_width="197dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:text="已签收\n XX快递：您的快件已签收，如......"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/TextView_a_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="bottom"
+                android:layout_weight="1"
+                android:gravity="right|bottom"
+                android:text="点击查询"
+                android:textColor="@color/color_useBlue" />
+
+
+        </TableRow>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
