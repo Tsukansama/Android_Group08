@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="text_home">首页</string>
+    <string name="text_mail">寄件</string>
+    <string name="text_mine">我的</string>
+</resources>

@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">CaiNiaoGuo</string>
+    <string name="text_home">首页</string>
+    <string name="text_mail">寄件</string>
+    <string name="text_mine">我的</string>
+
+    <string name="name">姓名：</string>
+    <string name="searchButton">获取Json数据</string>
+    <string name="result">结果：</string>
+
+    <string name="nickName">Andrew</string>
+    <string name="signature">这个人很懒，什么也没有留下</string>
+    <string name="singin">签到领10元红包</string>
+
+    <string name="orderQuantity">当前订单数量：</string>
+    <string name="queryOrder">查询订单</string>
+    <string name="notSettings">包裹通知设置</string>
+
+    <string name="editInfo">修改个人信息</string>
+    <string name="feedback">我要反馈</string>
+    <string name="id">身份证</string>
+
+    <string name="backButton">返回</string>
+</resources>
