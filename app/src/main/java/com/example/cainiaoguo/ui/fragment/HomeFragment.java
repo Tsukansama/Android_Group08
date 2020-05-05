@@ -1,13 +1,10 @@
 package com.example.cainiaoguo.ui.fragment;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.content.Intent;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
@@ -16,6 +13,7 @@ import com.example.cainiaoguo.R;
 import com.example.cainiaoguo.base.BaseFragment;
 import com.example.cainiaoguo.beans.Datas;
 import com.example.cainiaoguo.beans.ItemBean;
+import com.example.cainiaoguo.ui.activity.SearchActivity;
 import com.example.cainiaoguo.ui.adapter.ListViewAdapter;
 import com.example.cainiaoguo.ui.adapter.LooperPagerAdapter;
 
@@ -24,6 +22,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class HomeFragment extends BaseFragment {
     private LooperPagerAdapter mLooperPagerAdapter;
@@ -33,6 +32,10 @@ public class HomeFragment extends BaseFragment {
     private List<ItemBean> mData;
     @BindView(R.id.recycler_view)
     public RecyclerView mlist;
+    @BindView(R.id.HomeFragment_search)
+    public EditText editText2;
+    @BindView(R.id.HomeFragment_ButtonSearch)
+    public Button btnA;
 
     static {
         sPics.add(R.mipmap.lunbo1);
@@ -44,6 +47,33 @@ public class HomeFragment extends BaseFragment {
         return R.layout.fragment_home;
     }
 
+    @OnClick(R.id.HomeFragment_ButtonSearch)
+    public void HomeSearch(View rootView) {
+        btnA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), SearchActivity.class);
+                String accountb = editText2.getText().toString();
+                intent.putExtra("Name", accountb);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    /*  @Override
+  /*  protected void HomeSearch(View rootView) {
+          btn_Homesearch.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View v) {
+                  Intent intent = new Intent(getActivity(), SearchActivity.class);
+                 // String accountb = editText2.getText().toString();
+                  //intent.putExtra("Name", accountb);
+                  startActivity(intent);
+              }
+          });
+      }
+  */
     @Override
     protected void initViewloop(View rootView) {
         mLooperPagerAdapter = new LooperPagerAdapter();

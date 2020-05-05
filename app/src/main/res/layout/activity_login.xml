@@ -46,13 +46,13 @@
             android:background="@color/color_grey"
             android:ems="10"
             android:hint="密码"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:layout_marginLeft="30dp"
             android:layout_marginTop="180dp"
             />
         <Button
             android:onClick="login"
-            android:id="@+id/button"
+            android:id="@+id/button_login"
             android:layout_width="359dp"
             android:layout_height="42dp"
             android:background="@color/color_useBlue"
@@ -62,7 +62,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginTop="260dp"/>
         <Button
-            android:id="@+id/zhuce"
+            android:id="@+id/button_register"
             android:layout_width="359dp"
             android:layout_height="42dp"
             android:layout_marginLeft="30dp"

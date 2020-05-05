@@ -28,7 +28,13 @@ public abstract class BaseFragment extends Fragment {
 
         initData(rootView);
         initViewloop(rootView);
+        HomeSearch(rootView);
         return rootView;
+
+    }
+
+    protected void HomeSearch(View rootView) {
+
     }
 
     protected void initData(View rootView) {

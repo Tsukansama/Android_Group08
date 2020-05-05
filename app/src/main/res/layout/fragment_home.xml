@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="414dp"
@@ -21,26 +21,27 @@
             app:srcCompat="@mipmap/saoyisao" />
 
         <EditText
-            android:id="@+id/edittext_shouyesousuo"
+            android:id="@+id/HomeFragment_search"
             android:layout_width="340dp"
             android:layout_height="30dp"
             android:layout_toRightOf="@id/imageView_saoyisao"
             android:background="@drawable/editsharp"
             android:paddingLeft="20dp" />
 
-        <ImageView
-            android:id="@+id/imageView2"
+        <Button
+            android:id="@+id/HomeFragment_ButtonSearch"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_toRightOf="@id/edittext_shouyesousuo"
+            android:layout_toRightOf="@id/HomeFragment_search"
             android:onClick="search"
-            app:srcCompat="@mipmap/sousuo" />
+            android:stateListAnimator="@null"
+            android:background="@mipmap/sousuo" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/looper_pager"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:layout_below="@id/imageView2"></androidx.viewpager.widget.ViewPager>
+            android:layout_below="@id/HomeFragment_ButtonSearch"></androidx.viewpager.widget.ViewPager>
 
         <ImageView
             android:id="@+id/shouye_page1"
