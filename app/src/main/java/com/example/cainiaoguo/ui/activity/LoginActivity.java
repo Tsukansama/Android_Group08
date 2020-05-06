@@ -1,12 +1,15 @@
 package com.example.cainiaoguo.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
@@ -55,34 +58,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        Button btn_login = findViewById(R.id.button_login);
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mEditUser = findViewById(R.id.editText_use);
-                mEditPsw = findViewById(R.id.editText_password);
-                String editStruser;
-                String editStrupsw;
-                editStruser = mEditUser.getText().toString();
-                editStrupsw = mEditPsw.getText().toString();
-                String userA = "123";
-                String userpswA = "123";
-                if (editStruser.equals(userA) && editStrupsw.equals(userpswA)) {
-                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    startActivity(intent);
-                    return;
-                } else {
-                    AlertDialog alertDialog1 = new AlertDialog.Builder(LoginActivity.this)
-                            .setTitle("这是标题")//标题
-                            .setMessage("这是内容")//内容
-                            .setIcon(R.mipmap.ic_launcher)//图标
-                            .create();
-                    alertDialog1.show();
-                }
-
-
-            }
-        });
+        mEditUser = findViewById(R.id.editText_use);
+        mEditPsw = findViewById(R.id.editText_password);
     }
 
     public void login(View view) {
@@ -104,9 +81,29 @@ public class LoginActivity extends AppCompatActivity {
                 LogUtils.i(LoginActivity.class, "code-->" + code);
                 if (code == HttpURLConnection.HTTP_OK) {
                     User user = response.body();
-
-                    LogUtils.i(LoginActivity.class, "username-->" + user.getData().getAddress());
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    if(user != null){
+                        LogUtils.i(LoginActivity.class,"username-->"+user.getData().getAddress());
+                        /**
+                         * 将用户信息存储到本地
+                         */
+                        SharedPreferences sp = getApplicationContext().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putString("username",user.getData().getUsername());
+                        editor.putString("uid",user.getData().getUid());
+                        editor.putString("gender",user.getData().getGender());
+                        editor.putString("identify",user.getData().getIdentify());
+                        editor.putString("age",user.getData().getAge());
+                        editor.putString("user_phone",user.getData().getUser_phone());
+                        editor.putString("address",user.getData().getAddress());
+                        editor.commit();
+                        /**
+                         * 跳转至首页
+                         */
+                        startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "登陆失败", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
 
