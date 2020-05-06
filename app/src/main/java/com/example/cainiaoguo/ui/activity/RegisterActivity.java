@@ -13,7 +13,10 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -60,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity {
         String identify = registIdentify.getText().toString();
         String address = registAddress.getText().toString();
         String age = registAge.getText().toString();
+
 
         LogUtils.i(RegisterActivity.class,"username-->"+username+"\npasswd-->"+passwd+
                 "\nphoneNum-->"+phoneNum+"\nidentify-->"+identify+"\naddress-->"+address+"\nage-->"+age);

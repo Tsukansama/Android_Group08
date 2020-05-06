@@ -6,20 +6,21 @@ import com.example.cainiaoguo.domain.User;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Query;
 
 public interface API {
 
-    @GET("/travel/userLoginServlet")
+    @POST("/travel/userLoginServlet")
     Call<User> userLogin(@Query("username")String username,@Query("passwd")String passwd);
 
-    @GET("/travel/userRegistServlet")
+    @POST("/Group8_server/userRegistServlet")
     Call<ResultInfo> userRegist(@Query("username")String username,@Query("passwd")String passwd,
                                 @Query("address")String address,@Query("gender")String gender,
                                 @Query("age")String age,@Query("identify")String identify,
                                 @Query("user_phone")String user_phone);
 
-    @GET("/travel/findHistoricalByUidServlet")
+    @POST("/travel/findHistoricalByUidServlet")
     Call<HistoryOrders> getHistoryOrders(@Query("uid")String uid);
 
     Call<ResultInfo> mailThings(@Query("uid")String uid, @Query("sender_address")String sender_address,
