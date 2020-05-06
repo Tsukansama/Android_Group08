@@ -12,13 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.PackageInfoActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.activity.SearchFailActivity"/>
+        <activity android:name=".ui.activity.PackageInfoActivity"/>
+        <activity android:name=".ui.activity.SendSucceedActivity"/>
+        <activity android:name=".ui.activity.RegisterSucceedActivity"/>
         <activity android:name=".ui.activity.SearchActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.LoginBeforeActivity">

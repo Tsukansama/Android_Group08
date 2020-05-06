@@ -26,7 +26,7 @@ public class MailFragment extends BaseFragment {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SearchFailActivity.class);
+                Intent intent = new Intent(getActivity(), SendSucceedActivity.class);
 
                 startActivity(intent);
             }
