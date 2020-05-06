@@ -1,6 +1,8 @@
 package com.example.cainiaoguo.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.Button;
@@ -56,7 +58,10 @@ public class MineFragment extends BaseFragment {
 
 
     protected void initView(View rootView) {
-        tNickName.setText("Tom");
+        SharedPreferences sp = getContext().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        String username = sp.getString("username","");
+
+        tNickName.setText(username);
 
         signin.setBounds(0,0,35,35);
         youjiantou.setBounds(0,0,50,50);
