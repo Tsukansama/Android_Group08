@@ -65,16 +65,15 @@ public class RegisterActivity extends AppCompatActivity {
                 "\nphoneNum-->"+phoneNum+"\nidentify-->"+identify+"\naddress-->"+address+"\nage-->"+age);
         Retrofit retrofit = RetrofitManager.getRetrofit();
         API api = retrofit.create(API.class);
-        Call<ResultInfo> task = api.userRegist(username,passwd,address,"女",age,identify,phoneNum);
+        Call<ResultInfo> task = api.userRegist(username,passwd,address,"1",age,identify,phoneNum);
         task.enqueue(new Callback<ResultInfo>() {
             @Override
             public void onResponse(Call<ResultInfo> call, Response<ResultInfo> response) {
                 int code = response.code();
                 if(code == HttpURLConnection.HTTP_OK){
                     ResultInfo resultInfo = response.body();
-                    if(resultInfo.getErrorMsg().equals("true")){
+                    if(resultInfo.isFlag()){
                         Toast.makeText(getApplicationContext(),"注册成功!",Toast.LENGTH_SHORT).show();
-
                     }else{
                         Toast.makeText(getApplicationContext(),"注册失败!",Toast.LENGTH_SHORT).show();
                     }
