@@ -29,10 +29,14 @@ public abstract class BaseFragment extends Fragment {
         initData(rootView);
         initViewloop(rootView);
         HomeSearch(rootView);
+        toSendSucceedActivity(rootView);
         return rootView;
 
     }
 
+    protected void toSendSucceedActivity(View rootView) {
+
+    }
     protected void HomeSearch(View rootView) {
 
     }

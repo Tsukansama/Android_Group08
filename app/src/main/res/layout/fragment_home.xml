@@ -30,18 +30,22 @@
 
         <Button
             android:id="@+id/HomeFragment_ButtonSearch"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="18dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="12dp"
             android:layout_toRightOf="@id/HomeFragment_search"
+            android:background="@mipmap/sousuo"
             android:onClick="search"
-            android:stateListAnimator="@null"
-            android:background="@mipmap/sousuo" />
+            android:stateListAnimator="@null" />
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/looper_pager"
             android:layout_width="match_parent"
             android:layout_height="120dp"
-            android:layout_below="@id/HomeFragment_ButtonSearch"></androidx.viewpager.widget.ViewPager>
+            android:layout_below="@id/HomeFragment_ButtonSearch"
+            android:layout_marginTop="25dp">
+
+        </androidx.viewpager.widget.ViewPager>
 
         <ImageView
             android:id="@+id/shouye_page1"

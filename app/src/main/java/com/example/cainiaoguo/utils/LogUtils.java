@@ -9,6 +9,7 @@ public class LogUtils {
     private static final int WARNING_LEV = 2;
     private static final int ERROR_LEV = 1;
 
+
     public static void d(Class clazz,String log){
         if(CURRENT_LEV >= DEBUG_LEV){
             Log.d(clazz.getSimpleName(),log);
