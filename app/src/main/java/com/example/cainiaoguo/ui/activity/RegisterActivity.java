@@ -2,7 +2,7 @@ package com.example.cainiaoguo.ui.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.cainiaoguo.R;
-import com.example.cainiaoguo.RetrofitManager;
+import com.example.cainiaoguo.utils.RetrofitManager;
 import com.example.cainiaoguo.api.API;
 import com.example.cainiaoguo.domain.ResultInfo;
 import com.example.cainiaoguo.utils.LogUtils;
@@ -13,10 +13,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
 
 import retrofit2.Call;
 import retrofit2.Callback;
