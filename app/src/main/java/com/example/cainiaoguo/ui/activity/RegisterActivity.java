@@ -9,6 +9,7 @@ import com.example.cainiaoguo.utils.LogUtils;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -30,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText registAge;
     private RadioButton registB;
     private RadioButton registG;
+    Button btnToRegisterSucceedActivity;
 
 
 
@@ -51,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity {
         registAge = findViewById(R.id.register_age);
         registB = findViewById(R.id.sexB);
         registG = findViewById(R.id.seXG);
+        btnToRegisterSucceedActivity = findViewById(R.id.button_DoRegister)
     }
 
     public void regist(View view){

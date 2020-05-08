@@ -96,7 +96,7 @@
             </RelativeLayout>
 
             <EditText
-                android:id="@+id/res_addr"
+                android:id="@+id/rec_addr"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="12dp"
