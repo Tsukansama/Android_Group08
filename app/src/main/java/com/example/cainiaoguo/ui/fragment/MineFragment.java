@@ -12,6 +12,8 @@ import com.example.cainiaoguo.R;
 import com.example.cainiaoguo.base.BaseFragment;
 import com.example.cainiaoguo.ui.activity.MainActivity;
 import com.example.cainiaoguo.ui.activity.MyInfo;
+import com.example.cainiaoguo.ui.activity.sfzActivity;
+import com.example.cainiaoguo.ui.activity.wtfkActivity;
 import com.example.cainiaoguo.utils.LogUtils;
 
 import butterknife.BindDrawable;
@@ -85,4 +87,17 @@ public class MineFragment extends BaseFragment {
         LogUtils.i(MainActivity.class,"跳转到Myinfo");
     }
 
+    @OnClick(R.id.feedback)
+    public void towtfk(){
+        Intent intent = new Intent(getActivity(), wtfkActivity.class);
+        startActivity(intent);
+        LogUtils.i(MainActivity.class,"跳转到wtfkActivity");
+    }
+
+    @OnClick(R.id.id)
+    public void tosfz(){
+        Intent intent = new Intent(getActivity(), sfzActivity.class);
+        startActivity(intent);
+        LogUtils.i(MainActivity.class,"跳转到wtfkActivity");
+    }
 }

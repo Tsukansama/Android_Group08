@@ -32,9 +32,22 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.LoginActivity" />
+
+        <activity android:name=".ui.activity.wtfkActivity"/>
+
+        <activity android:name=".ui.activity.sfzActivity"/>
+
+        <activity android:name=".ui.activity.sfz2Activity"/>
+
+        <activity android:name=".ui.activity.bccgActivity"/>
+
+        <activity android:name=".ui.activity.fkcgActivity"/>
+
         <activity
             android:name=".ui.activity.MainActivity"
             android:launchMode="singleTask" />
+
+
     </application>
 
 </manifest>
