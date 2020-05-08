@@ -1,6 +1,7 @@
 package com.example.cainiaoguo.api;
 
 import com.example.cainiaoguo.domain.HistoryOrders;
+import com.example.cainiaoguo.domain.Order;
 import com.example.cainiaoguo.domain.ResultInfo;
 import com.example.cainiaoguo.domain.User;
 
@@ -11,7 +12,7 @@ import retrofit2.http.Query;
 
 public interface API {
 
-    @POST("/travel/userLoginServlet")
+    @POST("/Group8_server/userLoginServlet")
     Call<User> userLogin(@Query("username")String username,@Query("passwd")String passwd);
 
     @POST("/Group8_server/userRegistServlet")
@@ -20,8 +21,11 @@ public interface API {
                                 @Query("age")String age,@Query("identify")String identify,
                                 @Query("user_phone")String user_phone);
 
-    @POST("/travel/findHistoricalByUidServlet")
+    @POST("/Group8_server/findHistoricalByUidServlet")
     Call<HistoryOrders> getHistoryOrders(@Query("uid")String uid);
+
+    @POST("/Group8_server/findOrderByIdServlet")
+    Call<Order> getOrder(@Query("order_id")String order_id);
 
     Call<ResultInfo> mailThings(@Query("uid")String uid, @Query("sender_address")String sender_address,
                                 @Query("sender_name")String sender_name, @Query("sender_phone")String sender_phone);

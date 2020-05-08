@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.cainiaoguo.R;
+import com.example.cainiaoguo.domain.Order;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -17,10 +18,18 @@ public class SearchActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+        initView();
+
+
+    }
+
+    public void initView(){
         Intent intent = getIntent();
         String account = intent.getStringExtra("Name");
+//        Order order = intent.getParcelableExtra("order");
         TextView textView = (TextView)findViewById(R.id.GetText);
-        textView.setText("内容为"+account);
+        textView.setText("内容为"+"order.getData().getOrder_id()"+"\naccount-->"+account);
         Button btn_back = findViewById(R.id.button_back);
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
