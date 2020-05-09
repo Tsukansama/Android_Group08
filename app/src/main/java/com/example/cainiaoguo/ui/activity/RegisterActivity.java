@@ -7,6 +7,7 @@ import com.example.cainiaoguo.api.API;
 import com.example.cainiaoguo.domain.ResultInfo;
 import com.example.cainiaoguo.utils.LogUtils;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -77,9 +78,12 @@ public class RegisterActivity extends AppCompatActivity {
                 if(code == HttpURLConnection.HTTP_OK){
                     ResultInfo resultInfo = response.body();
                     if(resultInfo.isFlag()){
-                        Toast.makeText(getApplicationContext(),"注册成功!",Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(),RegisterSucceedActivity.class);
+                        startActivity(intent);
+
+//                        Toast.makeText(getApplicationContext(),"注册成功!",Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(getApplicationContext(),"注册失败!",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"注册失败!请检查是否有空值",Toast.LENGTH_SHORT).show();
                     }
                 }
             }

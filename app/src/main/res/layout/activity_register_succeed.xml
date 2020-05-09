@@ -61,7 +61,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="15dp"
             android:background="@drawable/edge_shape"
-            android:text="回到首页"
+            android:text="前往登录"
             android:textSize="17dp"
             android:textColor="#FFFFFF" />
     </RelativeLayout>
