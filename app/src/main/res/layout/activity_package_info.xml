@@ -86,16 +86,98 @@
             android:textSize="16dp" />
     </RelativeLayout>
 
-    <ListView
-        android:id="@+id/time_list_view"
-        android:divider="@null"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="360dp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/shou"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_shou" />
+
+        <TextView
+            android:id="@+id/pac_info_rec_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="收件地址："
+            android:layout_toRightOf="@+id/shou"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/shou"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_ji" />
+
+        <TextView
+            android:id="@+id/pac_info_rec_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="寄件地址："
+            android:layout_toRightOf="@+id/shou"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/shou"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/youjiantou" />
+
+        <TextView
+            android:id="@+id/pac_info_rec_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="当前地址："
+            android:layout_toRightOf="@+id/shou"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp">
+
+        <ImageView
+            android:id="@+id/shou"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/youjiantou" />
+
+        <TextView
+            android:id="@+id/pac_info_rec_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="签收状态："
+            android:layout_toRightOf="@+id/shou"
+            android:layout_centerVertical="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp">
 
         <Button
             android:id="@+id/btn_receive_confirm"
