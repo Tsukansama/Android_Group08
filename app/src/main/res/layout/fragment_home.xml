@@ -30,8 +30,8 @@
 
         <Button
             android:id="@+id/HomeFragment_ButtonSearch"
-            android:layout_width="18dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="12dp"
             android:layout_toRightOf="@id/HomeFragment_search"
             android:background="@mipmap/sousuo"

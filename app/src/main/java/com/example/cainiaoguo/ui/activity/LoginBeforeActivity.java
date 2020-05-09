@@ -84,12 +84,14 @@ public class LoginBeforeActivity extends AppCompatActivity {
                 if(code == HttpURLConnection.HTTP_OK){
                     Order order = response.body();
                     if(order.isFlag()){
-                        LogUtils.i(LoginBeforeActivity.class,"order--->"+order.getData().getOrder_id());
+                        LogUtils.i(LoginBeforeActivity.class,"order_id--->"+order.getData().getOrder_id());
 
                         Intent intent = new Intent(getApplicationContext(),SearchActivity.class);
-                        intent.putExtra("order",order);
+                        intent.putExtra("order_id",order_id);
                         startActivity(intent);
                     }else{
+                        Intent intent2 = new Intent(getApplicationContext(),SearchFailActivity.class);
+                        startActivity(intent2);
                         LogUtils.i(LoginBeforeActivity.class,"无此订单！");
                     }
                 }

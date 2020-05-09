@@ -10,6 +10,12 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp">
+        <Button
+            android:id="@+id/button_back_search_fail"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:stateListAnimator="@null"
+            android:background="@mipmap/back" />
 
 
     </RelativeLayout>

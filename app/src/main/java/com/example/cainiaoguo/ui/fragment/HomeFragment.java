@@ -10,23 +10,37 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.cainiaoguo.R;
+import com.example.cainiaoguo.api.API;
 import com.example.cainiaoguo.base.BaseFragment;
 import com.example.cainiaoguo.beans.Datas;
 import com.example.cainiaoguo.beans.ItemBean;
+import com.example.cainiaoguo.domain.Order;
+import com.example.cainiaoguo.ui.activity.LoginBeforeActivity;
 import com.example.cainiaoguo.ui.activity.SearchActivity;
+import com.example.cainiaoguo.ui.activity.SearchFailActivity;
 import com.example.cainiaoguo.ui.adapter.ListViewAdapter;
 import com.example.cainiaoguo.ui.adapter.LooperPagerAdapter;
+import com.example.cainiaoguo.utils.LogUtils;
+import com.example.cainiaoguo.utils.RetrofitManager;
 
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class HomeFragment extends BaseFragment {
+
     private LooperPagerAdapter mLooperPagerAdapter;
     private static List<Integer> sPics = new ArrayList<>();
+    private Order mOrder;
+
     @BindView(R.id.looper_pager)
     public ViewPager mloopPager;
     private List<ItemBean> mData;
@@ -49,15 +63,43 @@ public class HomeFragment extends BaseFragment {
 
     @OnClick(R.id.HomeFragment_ButtonSearch)
     public void HomeSearch(View rootView) {
-        btnA.setOnClickListener(new View.OnClickListener() {
+        String order_id = editText2.getText().toString();
+        LogUtils.i(HomeFragment.class,"order_id-->"+order_id);
+        Retrofit retrofit = RetrofitManager.getRetrofit();
+        API api = retrofit.create(API.class);
+        Call<Order> task = api.getOrder(order_id);
+
+        task.enqueue(new Callback<Order>() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), SearchActivity.class);
-                String accountb = editText2.getText().toString();
-                intent.putExtra("Name", accountb);
-                startActivity(intent);
+            public void onResponse(Call<Order> call, Response<Order> response) {
+                int code = response.code();
+                if(code == HttpURLConnection.HTTP_OK){
+                    Order order = response.body();
+                    if(order.isFlag()){
+                        LogUtils.i(LoginBeforeActivity.class,"order_id--->"+order.getData().getOrder_id());
+
+                        Intent intent = new Intent(getActivity(),SearchActivity.class);
+                        intent.putExtra("order_id",order_id);
+                        startActivity(intent);
+                    }else{
+                        Intent intent2 = new Intent(getActivity(), SearchFailActivity.class);
+                        startActivity(intent2);
+                        LogUtils.i(LoginBeforeActivity.class,"无此订单！");
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Order> call, Throwable t) {
+                LogUtils.i(LoginBeforeActivity.class,t.toString());
             }
         });
+//        btnA.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 
     }
 

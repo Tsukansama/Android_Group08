@@ -1,36 +1,16 @@
 package com.example.cainiaoguo.domain;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
-public class Order implements Parcelable {
+public class Order {
 
     /**
      * flag : true
-     * data : {"uid":1,"sender_address":"河南省开封市明伦校区仁和宿舍3号楼811室","sender_name":"张三","sender_phone":"13566668888","receiver_address":"河南省开封市金明校区华苑3号楼811室","receiver_name":"李四","receiver_phone":"13788239999","order_id":372036854775807,"sign_for":"N","sign_date":null,"weight":20,"type":"易碎品","real_time_address":"河南省开封市明伦校区仁和宿舍3号楼811室"}
+     * data : {"uid":4,"sender_address":"河南省开封市明伦校区仁和宿舍3号楼811室","sender_name":"小强","sender_phone":"13788239991","receiver_address":"河南省开封市金明校区华苑3号楼811室","receiver_name":"旺财","receiver_phone":"13566665881","order_id":372036854775810,"sign_for":"Y","sign_date":1588464000000,"weight":20,"type":"易碎品","real_time_address":"河南省开封市金明校区华苑3号楼811室"}
      * errorMsg :
      */
 
     private boolean flag;
     private DataBean data;
     private String errorMsg;
-
-    protected Order(Parcel in) {
-        flag = in.readByte() != 0;
-        errorMsg = in.readString();
-    }
-
-    public static final Creator<Order> CREATOR = new Creator<Order>() {
-        @Override
-        public Order createFromParcel(Parcel in) {
-            return new Order(in);
-        }
-
-        @Override
-        public Order[] newArray(int size) {
-            return new Order[size];
-        }
-    };
 
     public boolean isFlag() {
         return flag;
@@ -56,32 +36,21 @@ public class Order implements Parcelable {
         this.errorMsg = errorMsg;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeByte((byte) (flag ? 1 : 0));
-        dest.writeString(errorMsg);
-    }
-
     public static class DataBean {
         /**
-         * uid : 1
+         * uid : 4
          * sender_address : 河南省开封市明伦校区仁和宿舍3号楼811室
-         * sender_name : 张三
-         * sender_phone : 13566668888
+         * sender_name : 小强
+         * sender_phone : 13788239991
          * receiver_address : 河南省开封市金明校区华苑3号楼811室
-         * receiver_name : 李四
-         * receiver_phone : 13788239999
-         * order_id : 372036854775807
-         * sign_for : N
-         * sign_date : null
+         * receiver_name : 旺财
+         * receiver_phone : 13566665881
+         * order_id : 372036854775810
+         * sign_for : Y
+         * sign_date : 1588464000000
          * weight : 20
          * type : 易碎品
-         * real_time_address : 河南省开封市明伦校区仁和宿舍3号楼811室
+         * real_time_address : 河南省开封市金明校区华苑3号楼811室
          */
 
         private int uid;
@@ -93,7 +62,7 @@ public class Order implements Parcelable {
         private String receiver_phone;
         private long order_id;
         private String sign_for;
-        private Object sign_date;
+        private long sign_date;
         private int weight;
         private String type;
         private String real_time_address;
@@ -170,11 +139,11 @@ public class Order implements Parcelable {
             this.sign_for = sign_for;
         }
 
-        public Object getSign_date() {
+        public long getSign_date() {
             return sign_date;
         }
 
-        public void setSign_date(Object sign_date) {
+        public void setSign_date(long sign_date) {
             this.sign_date = sign_date;
         }
 
