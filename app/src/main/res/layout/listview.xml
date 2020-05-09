@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_marginLeft="20dp"
         android:layout_toRightOf="@id/list_view_icon"
-        android:text="我是标题"
+        android:text="签收状态"
         android:textSize="25dp" />
     <TextView
         android:id="@+id/list_view_title1"
