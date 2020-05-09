@@ -49,7 +49,7 @@
             </RelativeLayout>
 
             <EditText
-                android:id="@+id/snd_addr"
+                android:id="@+id/snd_address"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="12dp"
@@ -96,7 +96,7 @@
             </RelativeLayout>
 
             <EditText
-                android:id="@+id/rec_addr"
+                android:id="@+id/rec_address"
                 android:layout_width="300dp"
                 android:layout_height="100dp"
                 android:layout_marginLeft="12dp"
@@ -120,6 +120,15 @@
                 android:background="@drawable/edit_text_shape"
                 android:hint="电话"
                 android:paddingLeft="10dp" />
+
+            <EditText
+                android:id="@+id/rec_name"
+                android:layout_width="150dp"
+                android:layout_height="29dp"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="-29dp"
+                android:background="@drawable/edit_text_shape"
+                android:hint="收件人姓名" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -181,7 +190,6 @@
                     android:background="@drawable/edge_shape"
                     android:text="下一步"
                     android:textSize="17dp"
-                    android:onClick="next"
                     android:textColor="#FFFFFF" />
             </RelativeLayout>
 

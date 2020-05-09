@@ -12,10 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.activity.SearchFailActivity"/>
-        <activity android:name=".ui.activity.PackageInfoActivity"/>
-        <activity android:name=".ui.activity.SendSucceedActivity"/>
-        <activity android:name=".ui.activity.RegisterSucceedActivity"/>
+        <activity android:name=".ui.activity.Notification"></activity>
+        <activity android:name=".ui.activity.SearchFailActivity" />
+        <activity android:name=".ui.activity.PackageInfoActivity" />
+        <activity android:name=".ui.activity.SendSucceedActivity" />
+        <activity android:name=".ui.activity.RegisterSucceedActivity" />
         <activity android:name=".ui.activity.SearchActivity" />
         <activity android:name=".ui.activity.RegisterActivity" />
         <activity android:name=".ui.activity.LoginBeforeActivity">
@@ -32,22 +33,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.LoginActivity" />
-
-        <activity android:name=".ui.activity.wtfkActivity"/>
-
-        <activity android:name=".ui.activity.sfzActivity"/>
-
-        <activity android:name=".ui.activity.sfz2Activity"/>
-
-        <activity android:name=".ui.activity.bccgActivity"/>
-
-        <activity android:name=".ui.activity.fkcgActivity"/>
-
+        <activity android:name=".ui.activity.wtfkActivity" />
+        <activity android:name=".ui.activity.sfzActivity" />
+        <activity android:name=".ui.activity.sfz2Activity" />
+        <activity android:name=".ui.activity.bccgActivity" />
+        <activity android:name=".ui.activity.fkcgActivity" />
         <activity
             android:name=".ui.activity.MainActivity"
             android:launchMode="singleTask" />
-
-
     </application>
 
 </manifest>

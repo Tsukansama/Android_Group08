@@ -1,39 +1,38 @@
 package com.example.cainiaoguo.ui.activity;
 
-import android.app.Activity;
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.cainiaoguo.R;
-import com.example.cainiaoguo.ui.fragment.MineFragment;
 
-public class fkcgActivity extends Activity {
+public class Notification extends AppCompatActivity {
 
-    private Button mxxfc;
+    private Button backToMine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_fkcg);
+        setContentView(R.layout.activity_notification);
+
         initView();
         initListener();
-
-
     }
 
     private void initView() {
-        mxxfc = (Button) this.findViewById(R.id.btn_xxfk);
+        backToMine = findViewById(R.id.btn_back_to_mine);
     }
 
     private void initListener() {
-        mxxfc.setOnClickListener(new View.OnClickListener() {
+        backToMine.setOnClickListener(new View.OnClickListener(){
+
             @Override
             public void onClick(View v) {
-                fkcgActivity.this.finish();
+                Notification.this.finish();
             }
         });
-
     }
+
 }

@@ -35,7 +35,7 @@
         android:layout_below="@id/btn_home1"
         android:layout_centerInParent="true"
         android:background="#2697F4"
-        android:text="回到个人信息"
+        android:text="返回"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="20dp"/>

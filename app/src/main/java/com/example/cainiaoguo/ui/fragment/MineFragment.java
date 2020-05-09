@@ -12,6 +12,7 @@ import com.example.cainiaoguo.R;
 import com.example.cainiaoguo.base.BaseFragment;
 import com.example.cainiaoguo.ui.activity.MainActivity;
 import com.example.cainiaoguo.ui.activity.MyInfo;
+import com.example.cainiaoguo.ui.activity.Notification;
 import com.example.cainiaoguo.ui.activity.sfzActivity;
 import com.example.cainiaoguo.ui.activity.wtfkActivity;
 import com.example.cainiaoguo.utils.LogUtils;
@@ -78,6 +79,13 @@ public class MineFragment extends BaseFragment {
         btn3.setCompoundDrawables(feedback, null, youjiantou,null);
         btn4.setCompoundDrawables(idCard, null, youjiantou,null);
 
+    }
+
+    @OnClick(R.id.notification)
+    public void toNotification(){
+        Intent intent = new Intent(getActivity(), Notification.class);
+        startActivity(intent);
+        LogUtils.i(MineFragment.class,"跳转到设置页面");
     }
 
     @OnClick(R.id.editInfo)

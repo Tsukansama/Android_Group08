@@ -21,9 +21,7 @@ public class SendSucceedActivity extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(SendSucceedActivity.this, HomeFragment.class);
-                startActivity(intent);
+                SendSucceedActivity.this.finish();
             }
         });
     }
