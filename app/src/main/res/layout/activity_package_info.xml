@@ -122,7 +122,7 @@
             android:src="@drawable/icon_ji" />
 
         <TextView
-            android:id="@+id/pac_info_rec_addr"
+            android:id="@+id/pac_info_snd_addr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="寄件地址："
@@ -144,7 +144,7 @@
             android:src="@drawable/youjiantou" />
 
         <TextView
-            android:id="@+id/pac_info_rec_addr"
+            android:id="@+id/pac_info_now_addr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="当前地址："
@@ -166,7 +166,7 @@
             android:src="@drawable/youjiantou" />
 
         <TextView
-            android:id="@+id/pac_info_rec_addr"
+            android:id="@+id/pac_info_sign_condition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="签收状态："
