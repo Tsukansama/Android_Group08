@@ -27,6 +27,11 @@ public interface API {
     @POST("/Group8_server/findOrderByIdServlet")
     Call<Order> getOrder(@Query("order_id")String order_id);
 
+    @POST("/Group8_server/saveUserInfoServlet")
+    Call<User> updateMyInfo(@Query("uid")String uid,@Query("username")String username,
+                                  @Query("address")String address,@Query("gender")String gender,
+                                  @Query("age")int age,@Query("identify")String identify);
+
     Call<ResultInfo> mailThings(@Query("uid")String uid, @Query("sender_address")String sender_address,
                                 @Query("sender_name")String sender_name, @Query("sender_phone")String sender_phone);
 

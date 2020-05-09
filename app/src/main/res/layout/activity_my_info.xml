@@ -92,6 +92,20 @@
         android:layout_below="@id/age"
         android:layout_toRightOf="@id/address"
         android:background="@null"/>
+    <TextView
+        android:id="@+id/identify"
+        style="@style/MyInfoTextView"
+        android:text="身份证号"
+        android:layout_below="@id/address" />
+    <EditText
+        android:id="@+id/input_identify"
+        style="@style/MyInfoTextView"
+        android:hint="您的身份证号是"
+        android:gravity="center_vertical|right"
+        android:layout_below="@id/input_addr"
+        android:layout_toRightOf="@id/address"
+        android:background="@null"/>
+
 
 
 </RelativeLayout>

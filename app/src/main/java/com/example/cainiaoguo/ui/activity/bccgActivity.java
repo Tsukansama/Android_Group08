@@ -32,8 +32,7 @@ public class bccgActivity extends Activity {
         mbccg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(bccgActivity.this, MineFragment.class);
-                startActivity(intent);
+                bccgActivity.this.finish();
             }
         });
     }
