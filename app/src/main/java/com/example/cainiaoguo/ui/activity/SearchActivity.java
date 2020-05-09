@@ -26,8 +26,9 @@ import retrofit2.Retrofit;
 public class SearchActivity extends AppCompatActivity {
 
     private TextView mPackInfo;
-
+    private TextView mDetail;
     private Order mOrder;
+    private String mOrder_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,9 @@ public class SearchActivity extends AppCompatActivity {
 
         initView();
         updateUI();
+        initListener();
     }
+
 
 
 
@@ -45,6 +48,7 @@ public class SearchActivity extends AppCompatActivity {
 //        String account = mIntent.getStringExtra("Name");
 //
         mPackInfo = findViewById(R.id.TextView_a_text1);
+        mDetail = findViewById(R.id.TextView_a_text2);
 //
 //        TextView textView = (TextView)findViewById(R.id.GetText);
 //        textView.setText("内容为account-->"+account);
@@ -55,15 +59,16 @@ public class SearchActivity extends AppCompatActivity {
                 SearchActivity.this.finish();
             }
         });
+
     }
 
     private void updateUI() {
         Intent intent = getIntent();
-        String order_id = intent.getStringExtra("order_id");
-        LogUtils.i(SearchActivity.class,"order_id-->"+order_id);
+        mOrder_id = intent.getStringExtra("order_id");
+        LogUtils.i(SearchActivity.class,"order_id-->"+mOrder_id);
         Retrofit retrofit = RetrofitManager.getRetrofit();
         API api = retrofit.create(API.class);
-        Call<Order> task = api.getOrder(order_id);
+        Call<Order> task = api.getOrder(mOrder_id);
 
         task.enqueue(new Callback<Order>() {
             @Override
@@ -86,6 +91,17 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void initListener() {
+        mDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),PackageInfoActivity.class);
+                intent.putExtra("order_id",mOrder_id);
+                startActivity(intent);
+            }
+        });
     }
 
 }

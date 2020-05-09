@@ -92,7 +92,7 @@
         android:layout_marginTop="15dp">
 
         <ImageView
-            android:id="@+id/shou"
+            android:id="@+id/recv_addr"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"
@@ -104,7 +104,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="收件地址："
-            android:layout_toRightOf="@+id/shou"
+            android:layout_toRightOf="@+id/recv_addr"
             android:layout_centerVertical="true"/>
     </RelativeLayout>
 
@@ -114,7 +114,7 @@
         android:layout_marginTop="15dp">
 
         <ImageView
-            android:id="@+id/shou"
+            android:id="@+id/packinfo_shou"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"
@@ -126,7 +126,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="寄件地址："
-            android:layout_toRightOf="@+id/shou"
+            android:layout_toRightOf="@+id/packinfo_shou"
             android:layout_centerVertical="true"/>
     </RelativeLayout>
 
@@ -136,7 +136,7 @@
         android:layout_marginTop="15dp">
 
         <ImageView
-            android:id="@+id/shou"
+            android:id="@+id/real_time_address"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="40dp"
@@ -148,7 +148,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="当前地址："
-            android:layout_toRightOf="@+id/shou"
+            android:layout_toRightOf="@+id/real_time_address"
             android:layout_centerVertical="true"/>
     </RelativeLayout>
 
