@@ -20,6 +20,7 @@ import com.example.cainiaoguo.beans.ItemBean;
 import com.example.cainiaoguo.domain.HistoryOrders;
 import com.example.cainiaoguo.domain.Order;
 import com.example.cainiaoguo.ui.activity.LoginBeforeActivity;
+import com.example.cainiaoguo.ui.activity.PackageInfoActivity;
 import com.example.cainiaoguo.ui.activity.SearchActivity;
 import com.example.cainiaoguo.ui.activity.SearchFailActivity;
 import com.example.cainiaoguo.ui.adapter.ListViewAdapter;
@@ -39,7 +40,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 
-public class HomeFragment extends BaseFragment {
+public class HomeFragment extends BaseFragment implements ListViewAdapter.OnItemClickListener {
 
     private LooperPagerAdapter mLooperPagerAdapter;
     private static List<Integer> sPics = new ArrayList<>();
@@ -179,5 +180,21 @@ public class HomeFragment extends BaseFragment {
 
     private void updateUI(HistoryOrders historyOrders) {
         mAdapter.setData(historyOrders);
+    }
+
+    @Override
+    protected void initListener() {
+        mAdapter.setOnItemClickListener(this);
+    }
+
+    @Override
+    public void onItemClick(HistoryOrders.DataBean item) {
+        LogUtils.i(HomeFragment.class,"order_id-->"+item.getOrder_id());
+        Long order_id = item.getOrder_id();
+        String orderid = String.valueOf(order_id);
+        LogUtils.i(HomeFragment.class,"orderid----->"+orderid);
+        Intent intent = new Intent(getActivity(), PackageInfoActivity.class);
+        intent.putExtra("order_id",orderid);
+        startActivity(intent);
     }
 }

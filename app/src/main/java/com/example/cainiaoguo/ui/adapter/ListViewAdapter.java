@@ -18,6 +18,7 @@ import java.util.List;
 
 public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerHoledr> {
     private List<HistoryOrders.DataBean> mData = new ArrayList<>();
+    private OnItemClickListener mItemClickListener = null;
 
     @NonNull
     @Override
@@ -37,7 +38,14 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerH
             mStatus.setText("未签收");
         }
         realTimeAddr.setText(dataBean.getReal_time_address());
-
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(mItemClickListener != null){
+                    mItemClickListener.onItemClick(dataBean);
+                }
+            }
+        });
     }
 
     @Override
@@ -49,6 +57,14 @@ public class ListViewAdapter extends RecyclerView.Adapter<ListViewAdapter.InnerH
         mData.clear();
         mData.addAll(historyOrders.getData());
         notifyDataSetChanged();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.mItemClickListener = listener;
+    }
+
+    public interface OnItemClickListener{
+        void onItemClick(HistoryOrders.DataBean item);
     }
 
     public class InnerHoledr extends RecyclerView.ViewHolder {

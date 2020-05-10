@@ -33,7 +33,12 @@ public abstract class BaseFragment extends Fragment {
         initViewloop(rootView);
         HomeSearch(rootView);
         toSendSucceedActivity(rootView);
+        initListener();
         return rootView;
+
+    }
+
+    protected void initListener() {
 
     }
 

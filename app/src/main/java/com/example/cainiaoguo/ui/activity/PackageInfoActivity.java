@@ -106,9 +106,9 @@ public class PackageInfoActivity extends AppCompatActivity {
 
     private void setData(Order order) {
         mPackNum.setText(mOrder_id);
-        mPackRealAddr.setText(order.getData().getReal_time_address());
-        mPackDisAddr.setText(order.getData().getReceiver_address());
-        mSenderAddr.setText(order.getData().getSender_address());
+        mPackRealAddr.setText("实时地址:"+order.getData().getReal_time_address());
+        mPackDisAddr.setText("目的地址:"+order.getData().getReceiver_address());
+        mSenderAddr.setText("寄件人地址:"+order.getData().getSender_address());
         if(order.getData().getSign_for().equals("Y")){
             mPackStatus.setText("已签收");
         }else{
