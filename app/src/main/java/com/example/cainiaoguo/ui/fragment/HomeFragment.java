@@ -1,9 +1,12 @@
 package com.example.cainiaoguo.ui.fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -14,6 +17,7 @@ import com.example.cainiaoguo.api.API;
 import com.example.cainiaoguo.base.BaseFragment;
 import com.example.cainiaoguo.beans.Datas;
 import com.example.cainiaoguo.beans.ItemBean;
+import com.example.cainiaoguo.domain.HistoryOrders;
 import com.example.cainiaoguo.domain.Order;
 import com.example.cainiaoguo.ui.activity.LoginBeforeActivity;
 import com.example.cainiaoguo.ui.activity.SearchActivity;
@@ -39,6 +43,7 @@ public class HomeFragment extends BaseFragment {
 
     private LooperPagerAdapter mLooperPagerAdapter;
     private static List<Integer> sPics = new ArrayList<>();
+    private ListViewAdapter mAdapter;
     private Order mOrder;
 
     @BindView(R.id.looper_pager)
@@ -136,7 +141,43 @@ public class HomeFragment extends BaseFragment {
         }
         LinearLayoutManager layoutManager = new LinearLayoutManager(this.getActivity());
         mlist.setLayoutManager(layoutManager);
-        ListViewAdapter adapter = new ListViewAdapter(mData);
-        mlist.setAdapter(adapter);
+        mAdapter = new ListViewAdapter();
+        mlist.setAdapter(mAdapter);
+    }
+
+    @Override
+    protected void loadData() {
+        SharedPreferences sp = getContext().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        String uid = sp.getString("uid","4");
+
+        Retrofit retrofit = RetrofitManager.getRetrofit();
+
+        API api = retrofit.create(API.class);
+        Call<HistoryOrders> task = api.getHistoryOrders(uid);
+        task.enqueue(new Callback<HistoryOrders>() {
+            @Override
+            public void onResponse(Call<HistoryOrders> call, Response<HistoryOrders> response) {
+                int code = response.code();
+                if(code == HttpURLConnection.HTTP_OK){
+                    HistoryOrders historyOrders = response.body();
+                    if(historyOrders !=null){
+                        LogUtils.i(HomeFragment.class,"historyOdeers  Data--->"+historyOrders.getData().toString());
+                        updateUI(historyOrders);
+                    }else{
+                        Toast.makeText(getContext(),"请求数据失败", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<HistoryOrders> call, Throwable t) {
+                LogUtils.i(HomeFragment.class,"t-->"+t.toString());
+            }
+        });
+    }
+
+    private void updateUI(HistoryOrders historyOrders) {
+        mAdapter.setData(historyOrders);
     }
 }

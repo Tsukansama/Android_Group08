@@ -1,17 +1,20 @@
 package com.example.cainiaoguo.ui.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.cainiaoguo.R;
 
 public class sfzActivity extends Activity {
 
-    private Button msfzbc;
-    private Button msfz;
+    private Button mBackToMine;
+    private TextView mIdentify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,30 +22,29 @@ public class sfzActivity extends Activity {
         setContentView(R.layout.activity_sfz);
         initView();
         initListener();
-
+        initData();
 
     }
 
+
+
     private void initView() {
-        msfzbc = (Button) this.findViewById(R.id.btn_sfzbc);
-        msfz = (Button) this.findViewById(R.id.btn_sfz);
+        mBackToMine = findViewById(R.id.btn_back);
+        mIdentify = findViewById(R.id.text_identify);
     }
 
     private void initListener() {
-        msfzbc.setOnClickListener(new View.OnClickListener() {
+        mBackToMine.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(sfzActivity.this, bccgActivity.class);
-                startActivity(intent);
+                sfzActivity.this.finish();
             }
         });
+    }
 
-        msfz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(sfzActivity.this, sfz2Activity.class);
-                startActivity(intent);
-            }
-        });
+    private void initData() {
+        SharedPreferences sp = getApplicationContext().getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        String identify = sp.getString("identify","");
+        mIdentify.setText("身份证     "+identify);
     }
 }

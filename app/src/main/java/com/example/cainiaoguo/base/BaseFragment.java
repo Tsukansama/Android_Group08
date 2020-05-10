@@ -26,12 +26,18 @@ public abstract class BaseFragment extends Fragment {
 
         mBind = ButterKnife.bind(this,rootView);
 
-        initData(rootView);
+
         initView(rootView);
+        loadData();
+        initData(rootView);
         initViewloop(rootView);
         HomeSearch(rootView);
         toSendSucceedActivity(rootView);
         return rootView;
+
+    }
+
+    protected void loadData() {
 
     }
 
